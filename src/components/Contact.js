@@ -1,0 +1,74 @@
+import { Box, Container, Typography, Stack, IconButton, Button, Tooltip } from '@mui/material';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+
+const socials = [
+  { label: 'Email', icon: <EmailIcon fontSize="large" />, href: 'mailto:ducheminlogan4@gmail.com', color: '#ea4335' },
+  { label: 'GitHub', icon: <GitHubIcon fontSize="large" />, href: 'https://github.com/Logan-Duchemin', color: '#fff' },
+  { label: 'LinkedIn', icon: <LinkedInIcon fontSize="large" />, href: 'https://linkedin.com/in/username', color: '#0a66c2' },
+];
+
+export default function Contact() {
+  return (
+    <Box
+      sx={{
+        minHeight: '100vh',
+        pt: { xs: 10, md: 12 },
+        pb: 12,
+        bgcolor: 'background.default',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Container maxWidth="sm" sx={{ textAlign: 'center' }}>
+        <Typography variant="overline" color="primary" fontSize={13} letterSpacing={3}>
+          Travaillons ensemble
+        </Typography>
+        <Typography variant="h2" sx={{ mb: 2, fontSize: { xs: '2rem', md: '2.8rem' } }}>
+          Contact
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 6, lineHeight: 1.8 }}>
+          Vous avez un projet en tête ou une opportunité à partager ? N'hésitez pas à me contacter, je réponds généralement sous 24h.
+        </Typography>
+
+        <Button
+          variant="contained"
+          size="large"
+          startIcon={<EmailIcon />}
+          onClick={() => { window.location.href = 'mailto:ducheminlogan4@gmail.com'; }}
+          sx={{ borderRadius: 99, mb: 6, px: 4 }}
+        >
+          Envoyer un email
+        </Button>
+
+        <Box>
+          <Typography variant="caption" color="text.disabled" display="block" sx={{ mb: 2 }}>
+            Retrouvez-moi aussi sur
+          </Typography>
+          <Stack direction="row" spacing={1} justifyContent="center">
+            {socials.map((social) => (
+              <Tooltip key={social.label} title={social.label}>
+                <IconButton
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: 'text.secondary',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    '&:hover': { color: social.color, borderColor: social.color, bgcolor: 'transparent' },
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  {social.icon}
+                </IconButton>
+              </Tooltip>
+            ))}
+          </Stack>
+        </Box>
+      </Container>
+    </Box>
+  );
+}
