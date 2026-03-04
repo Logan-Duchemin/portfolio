@@ -40,10 +40,12 @@ export default function About() {
 
             <Grid container spacing={2}>
               {[
-                { label: 'Localisation', value: 'Clermont, France' },
+                { label: 'Localisation', value: 'Hondainville (60250)' },
                 { label: 'Email', value: 'ducheminlogan4@gmail.com' },
-                { label: 'Disponibilité', value: 'Ouvert aux opportunités' },
-                { label: 'Formation', value: "PROMEO" },
+                { label: 'Téléphone', value: '06 11 57 97 71' },
+                { label: 'Formation', value: 'BTS SIO option SLAM — PROMEO Compiègne' },
+                { label: 'Disponibilité', value: 'Télétravail ou présentiel' },
+                { label: 'Mobilité', value: 'Permis B — Véhicule personnel' },
               ].map((info) => (
                 <Grid item xs={12} sm={6} key={info.label}>
                   <Typography variant="caption" color="primary" display="block" fontWeight={600} textTransform="uppercase" letterSpacing={1}>

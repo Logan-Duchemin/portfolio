@@ -20,8 +20,8 @@ const navLinks = [
   { label: 'Accueil', to: '/' },
   { label: 'À propos', to: '/about' },
   { label: 'Compétences', to: '/skills' },
-  { label: 'Projets', to: '/projects' },
   { label: 'Entreprise', to: '/entreprise' },
+  { label: 'Projets', to: '/projects' },
   { label: 'Contact', to: '/contact' },
 ];
 

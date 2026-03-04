@@ -1,9 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
-import { Box, Container, Grid, Typography, Chip, Paper, Stack } from '@mui/material';
+import { Box, Container, Grid, Typography, Chip, Paper, Stack, Divider } from '@mui/material';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HistoryIcon from '@mui/icons-material/History';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessIcon from '@mui/icons-material/Business';
+import CodeIcon from '@mui/icons-material/Code';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import StorageIcon from '@mui/icons-material/Storage';
+import BuildIcon from '@mui/icons-material/Build';
 import entreprisePhoto from '../data/téléchargement.jpeg';
 
 const infos = [
@@ -101,8 +105,8 @@ export default function Entreprise() {
             <Typography variant="body1" color="text.secondary" sx={{ mb: 2, lineHeight: 1.9, fontSize: '1.05rem' }}>
               Fondée en 1920, La Brosse et Dupont est un groupe industriel international spécialisé dans la fabrication et la distribution de produits d'hygiène et d'entretien. Avec plus d'un siècle d'histoire, le groupe s'est imposé comme un acteur majeur sur ses marchés à l'échelle mondiale.
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9, fontSize: '1.05rem', mb: 3.5 }}>
-              Fort de plus de 1 000 collaborateurs à travers le monde, le groupe allie savoir-faire traditionnel et innovation continue. C'est dans cet environnement stimulant que j'effectue mon alternance, contribuant à la transformation digitale de l'entreprise.
+            <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9, fontSize: '1.05rem', mb: 2 }}>
+              Fort de plus de 1 000 collaborateurs à travers le monde, le groupe allie savoir-faire traditionnel et innovation continue. C'est dans cet environnement stimulant que j'effectue mon alternance depuis février 2022, contribuant à la transformation digitale de l'entreprise.
             </Typography>
 
             {/* Info cards */}
@@ -127,6 +131,48 @@ export default function Entreprise() {
                 </Grid>
               ))}
             </Grid>
+
+            <Divider sx={{ my: 3 }} />
+
+            {/* Missions */}
+            <Typography variant="caption" color="primary" display="block" fontWeight={700} textTransform="uppercase" letterSpacing={1} sx={{ mb: 2 }}>
+              Mes missions
+            </Typography>
+            <Grid container spacing={1.5} sx={{ mb: 3 }}>
+              {[
+                { icon: <CodeIcon sx={{ fontSize: 20 }} />, title: 'Frontend Web', desc: "Conception d'interfaces modernes et intuitives", stack: ['React', 'JavaScript', 'HTML/CSS'] },
+                { icon: <PhoneAndroidIcon sx={{ fontSize: 20 }} />, title: 'Mobile', desc: 'Applications iOS & Android pour les collaborateurs terrain', stack: ['React Native', 'Swift'] },
+                { icon: <StorageIcon sx={{ fontSize: 20 }} />, title: 'Backend', desc: 'Développement de fonctionnalités et gestion des flux de données', stack: ['Symfony', 'PHP', 'MySQL', 'SQL Server'] },
+                { icon: <BuildIcon sx={{ fontSize: 20 }} />, title: 'Maintenance & Évolution', desc: 'Analyse des besoins, nouvelles fonctionnalités et correction de bugs', stack: [] },
+              ].map((m) => (
+                <Grid item xs={12} sm={6} key={m.title}>
+                  <Box sx={{
+                    p: 2,
+                    borderRadius: 2,
+                    border: '1px solid rgba(124,77,255,0.2)',
+                    bgcolor: 'rgba(124,77,255,0.04)',
+                    height: '100%',
+                    transition: 'border-color 0.25s, background-color 0.25s',
+                    '&:hover': { borderColor: 'rgba(124,77,255,0.5)', bgcolor: 'rgba(124,77,255,0.09)' },
+                  }}>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.8 }}>
+                      <Box sx={{ color: 'primary.main', display: 'flex' }}>{m.icon}</Box>
+                      <Typography variant="body2" fontWeight={700} color="text.primary">{m.title}</Typography>
+                    </Stack>
+                    <Typography variant="caption" color="text.secondary" display="block" sx={{ mb: m.stack.length ? 1 : 0, lineHeight: 1.6 }}>{m.desc}</Typography>
+                    {m.stack.length > 0 && (
+                      <Stack direction="row" flexWrap="wrap" gap={0.5}>
+                        {m.stack.map((s) => (
+                          <Chip key={s} label={s} size="small" sx={{ height: 20, fontSize: '0.65rem', bgcolor: 'rgba(124,77,255,0.12)', color: '#b47aff', border: '1px solid rgba(124,77,255,0.25)' }} />
+                        ))}
+                      </Stack>
+                    )}
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Divider sx={{ my: 3 }} />
 
             {/* Activités */}
             <Typography variant="caption" color="primary" display="block" fontWeight={700} textTransform="uppercase" letterSpacing={1} sx={{ mb: 1.5 }}>

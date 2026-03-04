@@ -1,16 +1,26 @@
 import { useEffect, useState, useRef } from 'react';
 import { Box, Container, Typography, LinearProgress, Stack } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import StorageIcon from '@mui/icons-material/Storage';
 import BuildIcon from '@mui/icons-material/Build';
 
 const categories = [
   {
-    label: 'Frontend',
+    label: 'Frontend Web',
     icon: <CodeIcon fontSize="small" />,
     skills: [
       { name: 'React', level: 85 },
-      { name: 'HTML / CSS', level: 55 },
+      { name: 'JavaScript', level: 80 },
+      { name: 'HTML / CSS', level: 70 },
+    ],
+  },
+  {
+    label: 'Mobile',
+    icon: <PhoneAndroidIcon fontSize="small" />,
+    skills: [
+      { name: 'React Native', level: 70 },
+      { name: 'Swift', level: 50 },
     ],
   },
   {
@@ -19,7 +29,7 @@ const categories = [
     skills: [
       { name: 'PHP', level: 80 },
       { name: 'Symfony', level: 78 },
-      { name: 'Laravel', level: 45 },
+      { name: 'MySQL / SQL Server', level: 75 },
     ],
   },
   {
@@ -27,8 +37,8 @@ const categories = [
     icon: <BuildIcon fontSize="small" />,
     skills: [
       { name: 'Git / GitHub / GitLab', level: 85 },
-      { name: 'Docker', level: 75 },
-      { name: 'VS Code', level: 90 },
+      { name: 'Docker', level: 55 },
+      { name: 'VS Code', level: 75 },
     ],
   },
 ];

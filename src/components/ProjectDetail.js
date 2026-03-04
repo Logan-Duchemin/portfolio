@@ -66,28 +66,19 @@ export default function ProjectDetail() {
         </Stack>
 
         <Divider sx={{ mb: 4 }} />
-
-        <Stack direction="row" spacing={2}>
-          <Button
-            variant="contained"
-            startIcon={<GitHubIcon />}
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Voir le code
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<OpenInNewIcon />}
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ borderColor: project.color, color: project.color }}
-          >
-            Voir la démo
-          </Button>
-        </Stack>
+        {project.type === 'personal' && (
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="contained"
+              startIcon={<GitHubIcon />}
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir le code
+            </Button>
+          </Stack>
+        )}
       </Container>
     </Box>
   );
