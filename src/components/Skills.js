@@ -103,24 +103,58 @@ export default function Skills() {
           Compétences
         </Typography>
 
-        <Box ref={ref}>
-          <Stack spacing={6}>
-            {categories.map((cat) => (
-              <Box key={cat.label}>
-                <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 3 }}>
-                  <Box color="primary.main">{cat.icon}</Box>
-                  <Typography variant="h6" fontWeight={600}>
-                    {cat.label}
-                  </Typography>
-                </Stack>
-                <Box>
-                  {cat.skills.map((skill) => (
-                    <SkillBar key={skill.name} name={skill.name} level={skill.level} animate={animate} />
-                  ))}
+        <Box
+          ref={ref}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+            gap: 3,
+          }}
+        >
+          {categories.map((cat, i) => (
+            <Box
+              key={cat.label}
+              sx={{
+                p: 3,
+                borderRadius: 3,
+                background: 'rgba(26,26,46,0.7)',
+                border: '1px solid rgba(124,77,255,0.2)',
+                backdropFilter: 'blur(12px)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
+                animationDelay: `${i * 80}ms`,
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 32px rgba(124,77,255,0.18)',
+                  borderColor: 'rgba(124,77,255,0.5)',
+                },
+              }}
+            >
+              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 3 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 36,
+                    height: 36,
+                    borderRadius: 2,
+                    bgcolor: 'rgba(124,77,255,0.15)',
+                    color: 'primary.main',
+                  }}
+                >
+                  {cat.icon}
                 </Box>
+                <Typography variant="h6" fontWeight={600}>
+                  {cat.label}
+                </Typography>
+              </Stack>
+              <Box>
+                {cat.skills.map((skill) => (
+                  <SkillBar key={skill.name} name={skill.name} level={skill.level} animate={animate} />
+                ))}
               </Box>
-            ))}
-          </Stack>
+            </Box>
+          ))}
         </Box>
       </Container>
     </Box>

@@ -6,6 +6,9 @@ const theme = createTheme({
     primary: {
       main: '#7c4dff',
     },
+    secondary: {
+      main: '#00bcd4',
+    },
     background: {
       default: '#0d0d0d',
       paper: '#1a1a2e',
@@ -19,6 +22,18 @@ const theme = createTheme({
   },
   shape: {
     borderRadius: 12,
+  },
+  components: {
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(124, 77, 255, 0.12)',
+          color: '#b47aff',
+          border: '1px solid rgba(124, 77, 255, 0.25)',
+          fontWeight: 500,
+        },
+      },
+    },
   },
 });
 

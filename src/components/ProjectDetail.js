@@ -1,12 +1,12 @@
 import { Box, Container, Typography, Chip, Button, Stack, Divider } from '@mui/material';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { projects } from '../data/projects';
 
 export default function ProjectDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const project = projects.find((p) => p.id === id);
 
   if (!project) {
@@ -17,17 +17,14 @@ export default function ProjectDetail() {
     <Box sx={{ minHeight: '100vh', pt: { xs: 10, md: 12 }, pb: 12, bgcolor: 'background.default' }}>
       <Container maxWidth="md">
 
-        {/* Back button */}
         <Button
-          component={Link}
-          to="/projects"
+          onClick={() => navigate(-1)}
           startIcon={<ArrowBackIcon />}
           sx={{ mb: 4, color: 'text.secondary' }}
         >
-          Retour aux projets
+          Retour
         </Button>
-
-        {/* Color accent bar */}
+        
         <Box
           sx={{
             height: 6,

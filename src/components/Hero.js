@@ -10,16 +10,51 @@ export default function Hero() {
         display: 'flex',
         alignItems: 'center',
         background: 'linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%)',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <Container maxWidth="md">
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '-10%',
+          right: '-5%',
+          width: 500,
+          height: 500,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(124,77,255,0.15) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '-10%',
+          left: '-5%',
+          width: 350,
+          height: 350,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
         <Typography variant="overline" color="primary" fontSize={14} letterSpacing={3}>
           Développeur Full-Stack
         </Typography>
 
         <Typography variant="h1" fontSize={{ xs: '2.5rem', md: '4rem' }} sx={{ mt: 1, mb: 2, lineHeight: 1.1 }}>
           Bonjour, je suis{' '}
-          <Box component="span" color="primary.main">
+          <Box
+            component="span"
+            sx={{
+              background: 'linear-gradient(135deg, #7c4dff 0%, #b47aff 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
             Logan Duchemin
           </Box>
         </Typography>

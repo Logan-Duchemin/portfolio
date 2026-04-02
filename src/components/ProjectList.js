@@ -83,10 +83,18 @@ export default function ProjectList({ type }) {
                 <CardActions sx={{ p: 2, pt: 0 }}>
                   <Button
                     size="small"
-                    variant="contained"
+                    variant="outlined"
                     startIcon={<InfoOutlinedIcon />}
                     component={Link}
                     to={`/projects/${project.id}`}
+                    sx={{
+                      borderColor: 'rgba(124,77,255,0.4)',
+                      color: 'primary.main',
+                      '&:hover': {
+                        borderColor: 'primary.main',
+                        bgcolor: 'rgba(124,77,255,0.08)',
+                      },
+                    }}
                   >
                     Détail
                   </Button>
