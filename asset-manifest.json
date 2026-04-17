@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.723eea6f.css",
-    "main.js": "/portfolio/static/js/main.acbe5dda.js",
-    "static/js/453.fd2f0c4a.chunk.js": "/portfolio/static/js/453.fd2f0c4a.chunk.js",
-    "static/media/CV_Logan_Duchemin.pdf": "/portfolio/static/media/CV_Logan_Duchemin.b793e40145004e6fa482.pdf",
-    "static/media/Annexe.pdf": "/portfolio/static/media/Annexe.b7333ff30ee910e61d2d.pdf",
-    "index.html": "/portfolio/index.html",
-    "main.723eea6f.css.map": "/portfolio/static/css/main.723eea6f.css.map",
-    "main.acbe5dda.js.map": "/portfolio/static/js/main.acbe5dda.js.map",
-    "453.fd2f0c4a.chunk.js.map": "/portfolio/static/js/453.fd2f0c4a.chunk.js.map"
+    "main.css": "/static/css/main.723eea6f.css",
+    "main.js": "/static/js/main.f8733d30.js",
+    "static/js/453.fd2f0c4a.chunk.js": "/static/js/453.fd2f0c4a.chunk.js",
+    "static/media/CV_Logan_Duchemin.pdf": "/static/media/CV_Logan_Duchemin.b793e40145004e6fa482.pdf",
+    "static/media/Annexe.pdf": "/static/media/Annexe.b7333ff30ee910e61d2d.pdf",
+    "index.html": "/index.html",
+    "main.723eea6f.css.map": "/static/css/main.723eea6f.css.map",
+    "main.f8733d30.js.map": "/static/js/main.f8733d30.js.map",
+    "453.fd2f0c4a.chunk.js.map": "/static/js/453.fd2f0c4a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.723eea6f.css",
-    "static/js/main.acbe5dda.js"
+    "static/js/main.f8733d30.js"
   ]
 }
