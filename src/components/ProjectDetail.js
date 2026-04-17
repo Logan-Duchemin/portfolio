@@ -2,6 +2,7 @@ import { Box, Container, Typography, Chip, Button, Stack, Divider } from '@mui/m
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
 import { projects } from '../data/projects';
 
 export default function ProjectDetail() {
@@ -74,6 +75,18 @@ export default function ProjectDetail() {
             >
               Voir le code
             </Button>
+            {project.demo && project.demo !== '#' && (
+              <Button
+                variant="outlined"
+                startIcon={<LaunchIcon />}
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ borderColor: project.color, color: project.color }}
+              >
+                Voir le site
+              </Button>
+            )}
           </Stack>
         )}
       </Container>

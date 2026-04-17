@@ -1,5 +1,6 @@
-import { Box, Typography, IconButton, Tooltip } from '@mui/material';
+import { Box, Typography, IconButton, Tooltip, Grid } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 export default function Footer() {
   return (
@@ -18,18 +19,30 @@ export default function Footer() {
         gap: 1,
       }}
     >
-      <Tooltip title="GitHub">
-        <IconButton
-          href="https://github.com/Logan-Duchemin"
-          target="_blank"
-          rel="noopener noreferrer"
-          size="small"
-          sx={{ color: 'text.disabled', '&:hover': { color: '#fff' } }}
-        >
-          <GitHubIcon fontSize="small" />
-        </IconButton>
-      </Tooltip>
-
+      <Grid>
+        <Tooltip title="GitHub">
+          <IconButton
+            href="https://github.com/Logan-Duchemin"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="small"
+            sx={{ color: 'text.disabled', '&:hover': { color: '#fff' } }}
+          >
+            <GitHubIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="LinkedIn">
+          <IconButton
+            href="https://www.linkedin.com/in/logan-duchemin-83b75a3b9/"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="small"
+            sx={{ color: 'text.disabled', '&:hover': { color: '#fff' } }}
+          >
+            <LinkedInIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      </Grid>
       <Typography variant="body2" color="text.disabled">
         © {new Date().getFullYear()} Logan Duchemin. Fait avec React & MUI.
       </Typography>

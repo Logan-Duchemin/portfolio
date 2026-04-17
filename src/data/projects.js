@@ -47,4 +47,16 @@ export const projects = [
     demo: '#',
     color: '#7c4dff',
   },
+  {
+    id: 'cinetrack',
+    type: 'personal',
+    title: 'CineTrack',
+    shortDesc: 'Plateforme de tracking des films et séries en temps réel.',
+    fullDesc:
+      "Application fullstack de suivi cinématographique inspirée de TV Time, propulsée par l'API TMDB. Le frontend React/MUI propose un catalogue avec infinite scroll, une fiche détail (casting, trailer, similaires), un suivi épisode par épisode avec progress bar par saison, une watchlist et une page de statistiques. Le backend Laravel suit une architecture en couches (Controller → Repository pattern) avec authentification JWT et système multi-profils à la Netflix, le tout conteneurisé avec Docker.",
+    stack: ['React', 'MUI', 'Laravel', 'MySQL', 'TMDB', 'Docker'],
+    github: '#',
+    demo: 'https://cinetrack-xi.vercel.app/',
+    color: '#ccc53f',
+  },
 ];

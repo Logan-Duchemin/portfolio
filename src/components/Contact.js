@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const socials = [
   { label: 'Email', icon: <EmailIcon fontSize="large" />, href: 'mailto:ducheminlogan4@gmail.com', color: '#ea4335' },
   { label: 'GitHub', icon: <GitHubIcon fontSize="large" />, href: 'https://github.com/Logan-Duchemin', color: '#fff' },
-  { label: 'LinkedIn', icon: <LinkedInIcon fontSize="large" />, href: 'https://www.linkedin.com/in/logan-duchemin/', color: '#0a66c2' },
+  { label: 'LinkedIn', icon: <LinkedInIcon fontSize="large" />, href: 'https://www.linkedin.com/in/logan-duchemin-83b75a3b9/', color: '#0a66c2' },
 ];
 
 export default function Contact() {
