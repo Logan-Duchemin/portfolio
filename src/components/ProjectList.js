@@ -33,14 +33,24 @@ export default function ProjectList({ type }) {
   return (
     <Box sx={{ minHeight: '100vh', pt: { xs: 10, md: 12 }, pb: 12, bgcolor: 'background.paper' }}>
       <Container maxWidth="lg">
-        <Button
-          component={Link}
-          to="/projects"
-          startIcon={<ArrowBackIcon />}
-          sx={{ mb: 4, color: 'text.secondary' }}
-        >
-          Retour aux projets
-        </Button>
+        <Box sx={{ mb: 6 }}>
+          <Button
+            component={Link}
+            to="/projects"
+            variant="outlined"
+            startIcon={<ArrowBackIcon />}
+            sx={{
+              color: 'text.secondary',
+              borderColor: 'divider',
+              '&:hover': {
+                borderColor: 'text.secondary',
+                bgcolor: 'rgba(255,255,255,0.05)',
+              },
+            }}
+          >
+            Retour aux projets
+          </Button>
+        </Box>
 
         <Typography variant="overline" color="primary" fontSize={13} letterSpacing={3}>
           {subtitle}
