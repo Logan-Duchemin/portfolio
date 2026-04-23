@@ -1,6 +1,20 @@
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import DownloadIcon from '@mui/icons-material/Download';
 import { Link } from 'react-router-dom';
+import cv from '../data/CV_Logan_Duchemin.pdf';
+
+function Blob({ top, bottom, left, right, size, color }) {
+  return (
+    <Box sx={{
+      position: 'absolute', top, bottom, left, right,
+      width: size, height: size,
+      borderRadius: '50%',
+      background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
+      pointerEvents: 'none',
+    }} />
+  );
+}
 
 export default function Hero() {
   return (
@@ -14,33 +28,30 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '-10%',
-          right: '-5%',
-          width: 500,
-          height: 500,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(124,77,255,0.15) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '-10%',
-          left: '-5%',
-          width: 350,
-          height: 350,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
+      <Blob top="-10%" right="-5%" size={500} color="rgba(124,77,255,0.15)" />
+      <Blob bottom="-10%" left="-5%" size={350} color="rgba(0,188,212,0.08)" />
 
       <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
-        <Typography variant="overline" color="primary" fontSize={14} letterSpacing={3}>
+        <Box
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 1,
+            mb: 2,
+            px: 1.5,
+            py: 0.5,
+            borderRadius: 99,
+            border: '1px solid rgba(0,200,100,0.3)',
+            bgcolor: 'rgba(0,200,100,0.08)',
+          }}
+        >
+          <Box sx={{ width: 7, height: 7, borderRadius: '50%', bgcolor: '#00c864' }} />
+          <Typography variant="caption" sx={{ color: '#00c864', fontWeight: 600 }}>
+            Disponible — Bachelor 2026
+          </Typography>
+        </Box>
+
+        <Typography variant="overline" color="primary" fontSize={14} letterSpacing={3} display="block">
           Développeur Full-Stack
         </Typography>
 
@@ -63,12 +74,22 @@ export default function Hero() {
           Je conçois et développe des applications web modernes, de l'idée au déploiement.
         </Typography>
 
-        <Stack direction="row" spacing={2} flexWrap="wrap" gap={2}>
+        <Stack direction="row" flexWrap="wrap" gap={2}>
           <Button variant="contained" size="large" component={Link} to="/projects" endIcon={<ArrowForwardIcon />} sx={{ borderRadius: 99 }}>
             Voir mes projets
           </Button>
           <Button variant="outlined" size="large" component={Link} to="/contact" sx={{ borderRadius: 99 }}>
             Me contacter
+          </Button>
+          <Button
+            variant="text"
+            size="large"
+            startIcon={<DownloadIcon />}
+            href={cv}
+            download="CV_Logan_Duchemin.pdf"
+            sx={{ borderRadius: 99, color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
+          >
+            Mon CV
           </Button>
         </Stack>
       </Container>

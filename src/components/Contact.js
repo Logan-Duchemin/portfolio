@@ -45,7 +45,7 @@ export default function Contact() {
             variant="contained"
             size="large"
             startIcon={<EmailIcon />}
-            onClick={() => { window.location.href = 'mailto:ducheminlogan4@gmail.com'; }}
+            href="mailto:ducheminlogan4@gmail.com"
             sx={{ borderRadius: 99, mb: 2, px: 4 }}
           >
             Envoyer un email

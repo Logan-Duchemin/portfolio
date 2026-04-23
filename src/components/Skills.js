@@ -54,12 +54,8 @@ function SkillBar({ name, level, animate }) {
   return (
     <Box sx={{ mb: 2 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 0.5 }}>
-        <Typography variant="body2" fontWeight={500}>
-          {name}
-        </Typography>
-        <Typography variant="caption" color="text.secondary">
-          {getLabel(level)} — {level}%
-        </Typography>
+        <Typography variant="body2" fontWeight={500}>{name}</Typography>
+        <Typography variant="caption" color="text.secondary">{getLabel(level)} — {level}%</Typography>
       </Stack>
       <LinearProgress
         variant="determinate"
@@ -68,7 +64,6 @@ function SkillBar({ name, level, animate }) {
           height: 8,
           borderRadius: 4,
           bgcolor: 'rgba(124,77,255,0.12)',
-          transition: 'value 1s ease',
           '& .MuiLinearProgress-bar': {
             borderRadius: 4,
             background: 'linear-gradient(90deg, #7c4dff, #b47aff)',
@@ -103,25 +98,16 @@ export default function Skills() {
           Compétences
         </Typography>
 
-        <Box
-          ref={ref}
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-            gap: 3,
-          }}
-        >
-          {categories.map((cat, i) => (
+        <Box ref={ref} sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3 }}>
+          {categories.map((cat) => (
             <Box
               key={cat.label}
               sx={{
                 p: 3,
                 borderRadius: 3,
-                background: 'rgba(26,26,46,0.7)',
+                bgcolor: 'rgba(26,26,46,0.7)',
                 border: '1px solid rgba(124,77,255,0.2)',
-                backdropFilter: 'blur(12px)',
                 transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-                animationDelay: `${i * 80}ms`,
                 '&:hover': {
                   transform: 'translateY(-4px)',
                   boxShadow: '0 8px 32px rgba(124,77,255,0.18)',
@@ -130,29 +116,16 @@ export default function Skills() {
               }}
             >
               <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 3 }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: 36,
-                    height: 36,
-                    borderRadius: 2,
-                    bgcolor: 'rgba(124,77,255,0.15)',
-                    color: 'primary.main',
-                  }}
+                <Stack alignItems="center" justifyContent="center"
+                  sx={{ width: 36, height: 36, borderRadius: 2, bgcolor: 'rgba(124,77,255,0.15)', color: 'primary.main' }}
                 >
                   {cat.icon}
-                </Box>
-                <Typography variant="h6" fontWeight={600}>
-                  {cat.label}
-                </Typography>
+                </Stack>
+                <Typography variant="h6" fontWeight={600}>{cat.label}</Typography>
               </Stack>
-              <Box>
-                {cat.skills.map((skill) => (
-                  <SkillBar key={skill.name} name={skill.name} level={skill.level} animate={animate} />
-                ))}
-              </Box>
+              {cat.skills.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} animate={animate} />
+              ))}
             </Box>
           ))}
         </Box>

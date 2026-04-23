@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton, Tooltip, Grid } from '@mui/material';
+import { Box, Typography, IconButton, Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
@@ -19,7 +19,7 @@ export default function Footer() {
         gap: 1,
       }}
     >
-      <Grid>
+      <Box>
         <Tooltip title="GitHub">
           <IconButton
             href="https://github.com/Logan-Duchemin"
@@ -42,7 +42,7 @@ export default function Footer() {
             <LinkedInIcon fontSize="small" />
           </IconButton>
         </Tooltip>
-      </Grid>
+      </Box>
       <Typography variant="body2" color="text.disabled">
         © {new Date().getFullYear()} Logan Duchemin. Fait avec React & MUI.
       </Typography>

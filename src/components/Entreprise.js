@@ -141,25 +141,18 @@ export default function Entreprise() {
             }}
           >
             {i < missions.length - 1 && (
-              <Box sx={{
-                position: 'absolute',
-                left: { xs: 19, sm: 21 },
-                top: 44, bottom: -8, width: 2,
-                background: 'linear-gradient(to bottom, rgba(124,77,255,0.4), rgba(124,77,255,0.05))',
-              }} />
+              <Box sx={{ position: 'absolute', left: { xs: 19, sm: 21 }, top: 44, bottom: -8, width: '2px', bgcolor: 'rgba(124,77,255,0.25)' }} />
             )}
             <Box sx={{ flexShrink: 0, zIndex: 1 }}>
-              <Box sx={{
+              <Stack alignItems="center" justifyContent="center" sx={{
                 width: { xs: 40, sm: 44 }, height: { xs: 40, sm: 44 },
                 borderRadius: '50%',
                 border: '2px solid rgba(124,77,255,0.5)',
                 bgcolor: 'background.paper',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'primary.main',
-                boxShadow: '0 0 0 4px rgba(124,77,255,0.08)',
               }}>
                 {m.icon}
-              </Box>
+              </Stack>
             </Box>
             <Box sx={{ flex: 1, pb: i < missions.length - 1 ? 5 : 0 }}>
               <Typography variant="caption" color="primary" fontWeight={700} letterSpacing={1}>

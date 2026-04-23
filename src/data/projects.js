@@ -6,7 +6,7 @@ export const projects = [
     shortDesc: 'Digitalisation du support technique avec gestion des flux en temps réel.',
     fullDesc:
       "Application web de support client permettant la gestion et le suivi des tickets en temps réel. L'implémentation de WebSockets assure une mise à jour instantanée des requêtes sans rechargement de page. Le système intègre une authentification multi-rôles avec filtrage dynamique des données selon les permissions administrateur, offrant une expérience fluide aussi bien aux agents qu'aux administrateurs.",
-    stack: ['React', 'Symfony', 'WebSockets', 'MySQL', 'JWT', 'PHP'],
+    stack: ['React', 'Symfony', 'WebSockets', 'MySQL', 'PHP', 'Local Storage'],
     github: '#',
     demo: '#',
     color: '#7c4dff',
@@ -18,7 +18,7 @@ export const projects = [
     shortDesc: "Automatisation du suivi et de la traçabilité d'une flotte de véhicules.",
     fullDesc:
       "Application de gestion de flotte permettant un suivi complet des véhicules de l'entreprise. Le point clé du projet est un module de génération et lecture de QR Codes pour une identification rapide sur le terrain. La base de données intègre un historique d'affectation complet pour assurer une traçabilité totale des mouvements du parc, consultable depuis une interface web moderne.",
-    stack: ['React', 'Symfony', 'MySQL', 'QR Code', 'PHP', 'SQL Server'],
+    stack: ['React', 'Symfony', 'MySQL', 'QR Code', 'PHP', 'AWS S3'],
     github: '#',
     demo: '#',
     color: '#00bcd4',
@@ -30,7 +30,7 @@ export const projects = [
     shortDesc: 'Site vitrine personnel présentant mes compétences et réalisations.',
     fullDesc:
       "Site vitrine et portfolio personnel destiné à présenter mes compétences, mes réalisations et mon parcours de développeur. Conçu avec une approche mobile-first, le site propose une navigation fluide entre les sections, un affichage des projets réalisés et un formulaire de contact. Le projet m'a permis de consolider mes bases en HTML, CSS et JavaScript avant d'adopter des frameworks modernes.",
-    stack: ['React', 'Laravel', 'MySQL', 'PHP'],
+    stack: ['React', 'Laravel', 'MySQL', 'PHP', 'Local Storage'],
     github: '#',
     demo: '#',
     color: '#00bcd4',
@@ -56,7 +56,7 @@ export const projects = [
       "Application fullstack de suivi cinématographique inspirée de TV Time, propulsée par l'API TMDB. Le frontend React/MUI propose un catalogue avec infinite scroll, une fiche détail (casting, trailer, similaires), un suivi épisode par épisode avec progress bar par saison, une watchlist et une page de statistiques. Le backend Laravel suit une architecture en couches (Controller → Repository pattern) avec authentification JWT et système multi-profils à la Netflix, le tout conteneurisé avec Docker.",
     stack: ['React', 'MUI', 'Laravel', 'MySQL', 'TMDB', 'Docker'],
     github: '#',
-    demo: 'https://cinetrack-xi.vercel.app/',
+    demo: 'https://cinetrack.starck-law.com/',
     color: '#ccc53f',
   },
 ];

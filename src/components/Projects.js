@@ -8,6 +8,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { projects } from '../data/projects';
 
+const stackChipSx = { bgcolor: 'rgba(255,255,255,0.06)', fontSize: '0.7rem' };
+
 export default function Projects() {
   const [tab, setTab] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -71,19 +73,10 @@ export default function Projects() {
                   </Typography>
                   <Stack direction="row" flexWrap="wrap" gap={0.75}>
                     {project.stack.slice(0, 4).map((tech) => (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        sx={{ bgcolor: 'rgba(255,255,255,0.06)', fontSize: '0.7rem' }}
-                      />
+                      <Chip key={tech} label={tech} size="small" sx={stackChipSx} />
                     ))}
                     {project.stack.length > 4 && (
-                      <Chip
-                        label={`+${project.stack.length - 4}`}
-                        size="small"
-                        sx={{ bgcolor: 'rgba(255,255,255,0.06)', fontSize: '0.7rem' }}
-                      />
+                      <Chip label={`+${project.stack.length - 4}`} size="small" sx={stackChipSx} />
                     )}
                   </Stack>
                 </CardContent>

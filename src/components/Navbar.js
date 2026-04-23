@@ -16,6 +16,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { NavLink} from 'react-router-dom';
 
+const navBtnSx = {
+  fontSize: '0.8rem',
+  fontWeight: 500,
+  textTransform: 'none',
+  borderRadius: '100px',
+  px: 1.5,
+  py: 0.6,
+  minWidth: 0,
+  color: 'text.secondary',
+  transition: 'color 0.2s, background-color 0.2s',
+  '&:hover': { color: 'text.primary', bgcolor: 'rgba(255,255,255,0.06)' },
+  '&.active': { color: 'primary.main', bgcolor: 'rgba(124,77,255,0.12)', fontWeight: 700 },
+};
+
 const navLinks = [
   { label: 'Accueil', to: '/' },
   { label: 'À propos', to: '/about' },
@@ -71,23 +85,7 @@ export default function Navbar() {
                 end={link.to === '/'}
                 color="inherit"
                 size="small"
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 500,
-                  textTransform: 'none',
-                  borderRadius: '100px',
-                  px: 1.5,
-                  py: 0.6,
-                  minWidth: 0,
-                  color: 'text.secondary',
-                  transition: 'color 0.2s, background-color 0.2s',
-                  '&:hover': { color: 'text.primary', bgcolor: 'rgba(255,255,255,0.06)' },
-                  '&.active': {
-                    color: 'primary.main',
-                    bgcolor: 'rgba(124,77,255,0.12)',
-                    fontWeight: 700,
-                  },
-                }}
+                sx={navBtnSx}
               >
                 {link.label}
               </Button>

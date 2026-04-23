@@ -38,6 +38,31 @@ const experiences = [
 
 const BORDER = '1px solid rgba(255,255,255,0.07)';
 
+function TimelineItem({ period, title, subtitle, tag, isLast }) {
+  return (
+    <Box sx={{ display: 'flex', gap: 2, position: 'relative' }}>
+      {!isLast && (
+        <Box sx={{ position: 'absolute', left: 4, top: 16, bottom: -4, width: '2px', bgcolor: 'rgba(124,77,255,0.25)' }} />
+      )}
+      <Box sx={{
+        width: 10, height: 10, mt: '6px', flexShrink: 0, zIndex: 1, borderRadius: '50%',
+        bgcolor: tag ? 'transparent' : 'primary.main',
+        border: tag ? '1px dashed rgba(124,77,255,0.6)' : 'none',
+      }} />
+      <Box sx={{ pb: isLast ? 0 : 3.5 }}>
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.3 }}>
+          <Typography variant="caption" color="primary" fontWeight={600}>{period}</Typography>
+          {tag && <Chip label={tag} size="small" sx={{ height: 17, fontSize: '0.6rem', px: 0.2 }} />}
+        </Stack>
+        <Typography variant="body2" fontWeight={700} color={tag ? 'text.secondary' : 'text.primary'}>
+          {title}
+        </Typography>
+        <Typography variant="caption" color="text.disabled">{subtitle}</Typography>
+      </Box>
+    </Box>
+  );
+}
+
 export default function About() {
   const [docTab, setDocTab] = useState(0);
 
@@ -52,28 +77,9 @@ export default function About() {
           alignItems={{ xs: 'center', sm: 'flex-start' }}
           sx={{ mb: 8 }}
         >
-          <Box sx={{ flexShrink: 0 }}>
-            <Box
-              sx={{
-                p: '3px',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #7c4dff, #b47aff)',
-                display: 'inline-flex',
-              }}
-            >
-              <Avatar
-                sx={{
-                  width: { xs: 100, sm: 120 },
-                  height: { xs: 100, sm: 120 },
-                  fontSize: '2.2rem',
-                  bgcolor: 'background.paper',
-                  boxShadow: '0 0 32px rgba(124,77,255,0.25)',
-                }}
-              >
-                LD
-              </Avatar>
-            </Box>
-          </Box>
+          <Avatar sx={{ width: { xs: 100, sm: 120 }, height: { xs: 100, sm: 120 }, fontSize: '2.2rem', bgcolor: 'primary.main', flexShrink: 0 }}>
+            LD
+          </Avatar>
 
           <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, pt: { sm: 0.5 } }}>
             <Typography variant="overline" color="primary" fontSize={12} letterSpacing={3}>
@@ -95,15 +101,7 @@ export default function About() {
           <Typography variant="overline" color="primary" fontSize={12} letterSpacing={3} sx={{ mb: 2, display: 'block' }}>
             Informations
           </Typography>
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-              border: BORDER,
-              borderRadius: 3,
-              overflow: 'hidden',
-            }}
-          >
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, border: BORDER, borderRadius: 3, overflow: 'hidden' }}>
             {infos.map((info, i) => (
               <Stack
                 key={info.label}
@@ -111,22 +109,14 @@ export default function About() {
                 spacing={2}
                 alignItems="center"
                 sx={{
-                  px: 2.5,
-                  py: 2,
+                  px: 2.5, py: 2,
                   borderRight: { xs: 'none', sm: i % 2 === 0 ? BORDER : 'none' },
-                  borderBottom: {
-                    xs: i < infos.length - 1 ? BORDER : 'none',
-                    sm: i < infos.length - 2 ? BORDER : 'none',
-                  },
+                  borderBottom: { xs: i < infos.length - 1 ? BORDER : 'none', sm: i < infos.length - 2 ? BORDER : 'none' },
                 }}
               >
                 <Box sx={{ color: 'primary.main', display: 'flex', flexShrink: 0 }}>{info.icon}</Box>
                 <Box sx={{ minWidth: 0 }}>
-                  <Typography
-                    variant="caption"
-                    color="text.disabled"
-                    sx={{ display: 'block', textTransform: 'uppercase', letterSpacing: 0.8, lineHeight: 1, mb: 0.5 }}
-                  >
+                  <Typography variant="caption" color="text.disabled" sx={{ display: 'block', textTransform: 'uppercase', letterSpacing: 0.8, lineHeight: 1, mb: 0.5 }}>
                     {info.label}
                   </Typography>
                   <Typography variant="body2" color="text.primary" fontWeight={500} noWrap>
@@ -143,10 +133,8 @@ export default function About() {
           <Typography variant="overline" color="primary" fontSize={12} letterSpacing={3} sx={{ mb: 3, display: 'block' }}>
             Parcours
           </Typography>
-
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: { xs: 5, sm: 6 } }}>
 
-            {/* Formations */}
             <Box>
               <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 3 }}>
                 <SchoolIcon sx={{ color: 'primary.main', fontSize: 17 }} />
@@ -154,40 +142,11 @@ export default function About() {
                   Formation
                 </Typography>
               </Stack>
-
               {formations.map((f, i) => (
-                <Box key={i} sx={{ display: 'flex', gap: 2, position: 'relative' }}>
-                  {i < formations.length - 1 && (
-                    <Box sx={{
-                      position: 'absolute', left: 7, top: 18, bottom: -4, width: 2,
-                      background: 'linear-gradient(to bottom, rgba(124,77,255,0.35), rgba(124,77,255,0.05))',
-                    }} />
-                  )}
-                  <Box sx={{ flexShrink: 0, zIndex: 1, mt: '5px' }}>
-                    <Box sx={{
-                      width: 16, height: 16, borderRadius: '50%',
-                      bgcolor: f.tag ? 'transparent' : 'primary.main',
-                      border: f.tag ? '2px dashed rgba(124,77,255,0.5)' : '3px solid rgba(26,26,46,1)',
-                      boxShadow: f.tag ? 'none' : '0 0 0 2px rgba(124,77,255,0.35)',
-                    }} />
-                  </Box>
-                  <Box sx={{ pb: i < formations.length - 1 ? 3.5 : 0 }}>
-                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.3 }}>
-                      <Typography variant="caption" color="primary" fontWeight={600}>{f.period}</Typography>
-                      {f.tag && (
-                        <Chip label={f.tag} size="small" sx={{ height: 17, fontSize: '0.6rem', px: 0.2 }} />
-                      )}
-                    </Stack>
-                    <Typography variant="body2" fontWeight={700} color={f.tag ? 'text.secondary' : 'text.primary'}>
-                      {f.title}
-                    </Typography>
-                    <Typography variant="caption" color="text.disabled">{f.subtitle}</Typography>
-                  </Box>
-                </Box>
+                <TimelineItem key={i} {...f} isLast={i === formations.length - 1} />
               ))}
             </Box>
 
-            {/* Expériences */}
             <Box>
               <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 3 }}>
                 <WorkOutlineIcon sx={{ color: 'primary.main', fontSize: 17 }} />
@@ -195,31 +154,8 @@ export default function About() {
                   Expérience
                 </Typography>
               </Stack>
-
               {experiences.map((e, i) => (
-                <Box key={i} sx={{ display: 'flex', gap: 2, position: 'relative' }}>
-                  {i < experiences.length - 1 && (
-                    <Box sx={{
-                      position: 'absolute', left: 7, top: 18, bottom: -4, width: 2,
-                      background: 'linear-gradient(to bottom, rgba(124,77,255,0.35), rgba(124,77,255,0.05))',
-                    }} />
-                  )}
-                  <Box sx={{ flexShrink: 0, zIndex: 1, mt: '5px' }}>
-                    <Box sx={{
-                      width: 16, height: 16, borderRadius: '50%',
-                      bgcolor: 'primary.main',
-                      border: '3px solid rgba(26,26,46,1)',
-                      boxShadow: '0 0 0 2px rgba(124,77,255,0.35)',
-                    }} />
-                  </Box>
-                  <Box sx={{ pb: i < experiences.length - 1 ? 3.5 : 0 }}>
-                    <Typography variant="caption" color="primary" fontWeight={600} sx={{ display: 'block', mb: 0.3 }}>
-                      {e.period}
-                    </Typography>
-                    <Typography variant="body2" fontWeight={700} color="text.primary">{e.title}</Typography>
-                    <Typography variant="caption" color="text.disabled">{e.subtitle}</Typography>
-                  </Box>
-                </Box>
+                <TimelineItem key={i} {...e} isLast={i === experiences.length - 1} />
               ))}
             </Box>
 
@@ -232,12 +168,7 @@ export default function About() {
             Documents
           </Typography>
           <Box sx={{ border: BORDER, borderRadius: 3, overflow: 'hidden' }}>
-            <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="space-between"
-              sx={{ px: 2, borderBottom: BORDER, bgcolor: 'rgba(255,255,255,0.02)' }}
-            >
+            <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 2, borderBottom: BORDER, bgcolor: 'rgba(255,255,255,0.02)' }}>
               <Tabs
                 value={docTab}
                 onChange={(_, v) => setDocTab(v)}
@@ -254,25 +185,16 @@ export default function About() {
               <Button
                 size="small"
                 variant="outlined"
+                color="primary"
                 startIcon={<DownloadIcon fontSize="small" />}
                 href={docs[docTab].src}
                 download={docs[docTab].download}
-                sx={{
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  borderColor: 'rgba(124,77,255,0.4)',
-                  color: 'primary.main',
-                  '&:hover': { bgcolor: 'rgba(124,77,255,0.08)', borderColor: 'primary.main' },
-                }}
+                sx={{ textTransform: 'none', fontWeight: 600 }}
               >
                 Télécharger
               </Button>
             </Stack>
-
-            <Box
-              component="iframe"
-              src={docs[docTab].src}
-              title={docs[docTab].label}
+            <Box component="iframe" src={docs[docTab].src} title={docs[docTab].label}
               sx={{ width: '100%', height: { xs: 520, md: 800 }, border: 'none', display: 'block' }}
             />
           </Box>
